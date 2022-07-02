@@ -10,6 +10,7 @@ sliderValue.textContent = `${sliderInput} x ${sliderInput}`;
 
 slider.addEventListener('change', createGrid)
 createGrid();
+
 function createGrid(){
     gridContainer.textContent='';
     sliderInput = document.getElementById("sliderInput").value;
@@ -24,5 +25,12 @@ function createGrid(){
         box.classList.add('box');
         gridContainer.appendChild(box);
         box.setAttribute('style',`width: ${width}px;height: ${width}px`);
+    } 
+    const boxes = document.querySelectorAll('.box');
+    for (let i = 0; i < boxes.length; i++){
+        boxes[i].addEventListener('mouseover', changeColor)
     }
+}
+function changeColor(){
+    this.setAttribute('style', `width: ${width}px;height: ${width}px;background-color: black`);
 }
